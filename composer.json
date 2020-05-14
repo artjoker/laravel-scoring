@@ -44,10 +44,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ScoringServiceProvider"
+                "Artjoker\\LaravelScoring\\LaravelScoringServiceProvider"
             ],
             "aliases": {
-                "LaravelScoring": "ScoringFacade"
+                "LaravelScoring": "Artjoker\\LaravelScoring\\Facades\\Scoring"
             }
         }
     }
