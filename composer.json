@@ -1,0 +1,54 @@
+{
+    "name": "artjoker/laravel-scoring",
+    "description": "Integration of scoring systems for Laravel",
+    "keywords": [
+        "artjoker",
+        "laravel-scoring"
+    ],
+    "homepage": "https://github.com/artjoker/laravel-scoring",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Volodymyr Taranenko",
+            "email": "v.taranenko@artjoker.net",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Artjoker\\LaravelScoring\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Artjoker\\LaravelScoring\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ScoringServiceProvider"
+            ],
+            "aliases": {
+                "LaravelScoring": "ScoringFacade"
+            }
+        }
+    }
+}
