@@ -13,6 +13,11 @@ You can install the package via composer:
 ```
 composer require artjoker/laravel-scoring
 ```
+You can publish the config file:
+```
+php artisan vendor:publish --provider="Artjoker\LaravelScoring\ScoringServiceProvider" --tag="config"
+```
+
 Set environment variable (`.env`)
 ```
 RISK_TOOLS_URL=

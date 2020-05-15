@@ -17,7 +17,7 @@
         {
             $this->publishes([
                 __DIR__ . '/../config/scoring.php' => config_path('scoring.php'),
-            ], 'scoring.config');
+            ], 'config');
 
             // Publishing is only necessary when using the CLI.
             if ($this->app->runningInConsole()) {
@@ -58,7 +58,7 @@
             // Publishing the configuration file.
             $this->publishes([
                 __DIR__ . '/../config/scoring.php' => config_path('scoring.php'),
-            ], 'scoring.config');
+            ], 'config');
         }
     }
 
