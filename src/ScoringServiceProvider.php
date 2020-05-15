@@ -16,8 +16,13 @@
         public function boot()
         {
             $this->publishes([
-                __DIR__ . '/../config/scoring.php' => config_path('scoring.php')
-            ], 'config');
+                __DIR__ . '/../config/scoring.php' => config_path('scoring.php'),
+            ], 'scoring.config');
+
+            // Publishing is only necessary when using the CLI.
+            if ($this->app->runningInConsole()) {
+                $this->bootForConsole();
+            }
         }
 
         /**
@@ -25,6 +30,8 @@
          */
         public function register()
         {
+            $this->mergeConfigFrom(__DIR__ . '/../config/scoring.php', 'scoring');
+
             // Register the service the package provides.
             $this->app->singleton('laravelScoring', function ($app) {
                 return new Scoring;
@@ -39,6 +46,19 @@
         public function provides()
         {
             return ['laravelScoring'];
+        }
+
+        /**
+         * Console-specific booting.
+         *
+         * @return void
+         */
+        protected function bootForConsole()
+        {
+            // Publishing the configuration file.
+            $this->publishes([
+                __DIR__ . '/../config/scoring.php' => config_path('scoring.php'),
+            ], 'scoring.config');
         }
     }
 
