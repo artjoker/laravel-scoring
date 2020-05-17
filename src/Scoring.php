@@ -28,45 +28,45 @@
 
         /**
          * @param       $service
-         * @param array $options
+         * @param array $params
          *
          * @return mixed
          */
-        public function scoring($service, $options = [])
+        public function scoring($service, $params = [])
         {
             $factory = new ProviderFactory();
             if ($this->provider = $factory->getProvider($service)) {
-                return $this->provider->getScoring($options);
+                return $this->provider->getScoring($params);
             }
             return false;
         }
 
         /**
          * @param       $service
-         * @param array $options
+         * @param array $params
          *
          * @return bool
          */
-        public function status($service, $options = [])
+        public function status($service, $params = [])
         {
             $factory = new ProviderFactory();
             if ($this->provider = $factory->getProvider($service)) {
-                return $this->provider->sendFeedback($options);
+                return $this->provider->sendFeedback($params);
             }
             return false;
         }
 
         /**
          * @param       $service
-         * @param array $options
+         * @param array $params
          *
          * @return bool
          */
-        public function ubkiReport($service, $options = [])
+        public function ubkiReport($service, $params = [])
         {
             $factory = new ProviderFactory();
             if ($this->provider = $factory->getProvider($service)) {
-                return $this->provider->getUbki($options);
+                return $this->provider->getUbki($params);
             }
             return false;
         }

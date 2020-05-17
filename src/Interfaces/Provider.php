@@ -7,21 +7,21 @@
     interface Provider
     {
         /**
-         * @param array $options
+         * @param array $params
          * @return array
          */
-        public function getScoring(array $options = []) : array;
+        public function getScoring(array $params = []) : array;
 
         /**
-         * @param array $options
+         * @param array $params
          * @return array
          */
-        public function sendFeedback(array $options = []) : array;
+        public function sendFeedback(array $params = []) : array;
 
         /**
-         * @param array $options
+         * @param array $params
          * @return array
          */
-        public function getUbki(array $options = []) : array;
+        public function getUbki(array $params = []) : array;
 
     }

@@ -51,7 +51,7 @@
          *
          * @return array
          */
-        public function getScoring($params = []): array
+        public function getScoring(array $params = []): array
         {
             $this->params  = $params;
             $this->request = self::requestScoring();
@@ -63,7 +63,7 @@
          *
          * @return array
          */
-        public function sendFeedback($params = []): array
+        public function sendFeedback(array $params = []): array
         {
             $this->params  = $params;
             $this->request = self::requestFeedback();
@@ -75,7 +75,7 @@
          *
          * @return array
          */
-        public function getUbki($params = []): array
+        public function getUbki(array $params = []): array
         {
             $this->params  = $params;
             $this->request = self::requestGetUbki();
