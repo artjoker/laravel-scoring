@@ -92,7 +92,7 @@ $result = Scoring::status('risk_tools', $attributes);
 
 Get the UBKI reports from the scoring system as follows:
 ```
-$result = Scoring::ubki('risk_tools', ['public_id' => $public_id]);
+$result = Scoring::ubkiReport('risk_tools', ['public_id' => $public_id]);
 ```
 - $public_id - ID of credit
 
