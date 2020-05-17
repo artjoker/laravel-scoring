@@ -62,7 +62,7 @@
          *
          * @return bool
          */
-        public function ubki($service, $options = [])
+        public function ubkiReport($service, $options = [])
         {
             $factory = new ProviderFactory();
             if ($this->provider = $factory->getProvider($service)) {

@@ -47,12 +47,12 @@
          *
          * @return mixed
          */
-        public function ubki($service, $params = [])
+        public function ubkiReport($service, $params = [])
         {
             if (method_exists($this, 'scoringAttributes')) {
                 $this->scoringAttributes();
             }
-            return Scoring::ubki($service, $this->getAttributes());
+            return Scoring::ubkiReport($service, $this->getAttributes());
         }
 
     }
