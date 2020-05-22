@@ -166,8 +166,6 @@
                     if ($map_key != 'ubki') {
                         if (isset($this->params[$map_value])) {
                             $parameters[$map_key] = $this->params[$map_value];
-                        } else {
-                            Log::error('Mapping model does not contain an parameter (attribute): ' . $map_value, [static::class]);
                         }
                     }
                 }
