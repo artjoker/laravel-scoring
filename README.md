@@ -117,7 +117,7 @@ You can get data from the pre-scoring system as follows:
 ```
 $result = Scoring::pre_scoring('risk_tools', ['social_number' => $social_number]);
 ```
-- $social_number - INN of client
+- $social_number - Social number (INN) of client
 
 #### Trait
 
