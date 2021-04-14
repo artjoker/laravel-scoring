@@ -13,9 +13,10 @@
      */
     class RiskTools implements Provider
     {
-        const URL_GET_SCORING = '/scoring/get_score'; // get scoring
-        const URL_REPORT_UBKI = '/ubki/get_reports'; // get UBKI reports
-        const URL_FEEDBACK    = '/apps/upsert_bulk'; // updates of statuses of loans
+        const URL_GET_SCORING     = '/scoring/get_score'; // get scoring
+        const URL_REPORT_UBKI     = '/ubki/get_reports'; // get UBKI reports
+        const URL_FEEDBACK        = '/apps/upsert_bulk'; // updates of statuses of loans
+        const URL_GET_PRE_SCORING = '/scoring/get_prescore'; // get pre-scoring
 
         protected $requestUrl;
         protected $secretKey;
@@ -56,6 +57,18 @@
             $this->params  = $params;
             $this->request = self::requestScoring();
             return self::query(self::URL_GET_SCORING);
+        }
+
+        /**
+         * @param array $params
+         *
+         * @return array
+         */
+        public function getPreScoring(array $params = []): array
+        {
+            $this->params  = $params;
+            $this->request = self::requestPreScoring();
+            return self::query(self::URL_GET_PRE_SCORING);
         }
 
         /**
@@ -154,6 +167,15 @@
                 $application['ubki'] = $this->params['ubki'];
             }
             return json_encode($application);
+        }
+
+        /**
+         * @return false|string|void
+         */
+        private function requestPreScoring()
+        {
+            $social_number = $this->params['social_number'];
+            return json_encode(['application_id' => isset($social_number) ? $social_number : '']);
         }
 
         /**

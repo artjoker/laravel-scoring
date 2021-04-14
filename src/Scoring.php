@@ -71,4 +71,19 @@
             return false;
         }
 
+        /**
+         * @param       $service
+         * @param array $params
+         *
+         * @return mixed
+         */
+        public function pre_scoring($service, $params = [])
+        {
+            $factory = new ProviderFactory();
+            if ($this->provider = $factory->getProvider($service)) {
+                return $this->provider->getPreScoring($params);
+            }
+            return false;
+        }
+
     }
