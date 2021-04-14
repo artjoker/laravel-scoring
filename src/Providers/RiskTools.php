@@ -175,7 +175,7 @@
         private function requestPreScoring()
         {
             $social_number = $this->params['social_number'];
-            return json_encode(['application_id' => isset($social_number) ? $social_number : '']);
+            return json_encode(['social_number' => isset($social_number) ? $social_number : '']);
         }
 
         /**
