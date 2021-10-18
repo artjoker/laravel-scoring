@@ -24,6 +24,7 @@
         protected $request;
         protected $mapScoring;
         protected $sync;
+        protected $queryLog;
 
         protected $exeptions = ['ubki', 'status_id', 'closed_at', 'amount_to_pay', 'total_paid', 'overdue_days'];
 
@@ -45,6 +46,7 @@
             $this->secretKey  = $config['key'] ?? null;
             $this->sync       = $config['sync'] ?? null;
             $this->mapScoring = $config['model_data'] ?? null;
+            $this->queryLog   = $config['query_log'] ?? null;
         }
 
         /**
@@ -117,6 +119,16 @@
         {
             if ($this->requestUrl && $this->request) {
                 $client  = new Client();
+
+                if ($this->queryLog) {
+                    \DB::table('risk_tools_query_logs')->insert([
+                        'client_id' => isset($this->params[$this->mapScoring['user_id']]) ? $this->params[$this->mapScoring['user_id']] : 0,
+                        'url' => $this->requestUrl,
+                        'method' => $method,
+                        'params' => $this->request,
+                    ]);
+                }
+
                 $request = new Request(
                     'POST',
                     $this->requestUrl . $method,
