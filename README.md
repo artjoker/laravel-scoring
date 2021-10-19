@@ -154,6 +154,21 @@ Add a new method `scoringAttributes()` to the class to add the necessary attribu
 ```
 You can use other ways to create custom attributes that you specified in `'model_data'` (`config/scoring.php`).
 
+#### Logging requests to database
+
+You have the option to save all Risk Tools requests in a database table. 
+
+To do this, you should set config parameter ``query_log`` to ``true`` and create table ``risk_tools_query_logs`` with the following fields
+
+```
+$table->bigIncrements('id');
+$table->unsignedInteger('client_id');
+$table->string('url');
+$table->string('method', 20);
+$table->json('params');
+$table->timestamp('created_at')->useCurrent();
+```
+
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
