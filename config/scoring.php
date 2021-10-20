@@ -16,6 +16,7 @@
             'key'        => env('RISK_TOOLS_KEY', null),
             'sync'       => env('RISK_TOOLS_SYNC', false),
             'class'      => Artjoker\LaravelScoring\Providers\RiskTools::class,
+            'query_log'  => env('RISK_TOOLS_QUERY_LOG', false),
             // Mapping model data (attributes) for get scoring
             'model_data' => [
                 // For "scoring" method
