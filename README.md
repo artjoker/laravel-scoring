@@ -162,6 +162,7 @@ To do this, you should set config parameter ``query_log`` to ``true`` and create
 
 ```
 $table->bigIncrements('id');
+$table->string('public_id');
 $table->unsignedInteger('client_id');
 $table->string('url');
 $table->string('method', 20);
