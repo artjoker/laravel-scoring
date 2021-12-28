@@ -122,6 +122,7 @@
 
                 if ($this->queryLog) {
                     \DB::table('risk_tools_query_logs')->insert([
+                        'public_id' => isset($this->params[$this->mapScoring['id']]) ? $this->params[$this->mapScoring['id']] : 0,
                         'client_id' => isset($this->params[$this->mapScoring['user_id']]) ? $this->params[$this->mapScoring['user_id']] : 0,
                         'url' => $this->requestUrl,
                         'method' => $method,

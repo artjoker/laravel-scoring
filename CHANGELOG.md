@@ -10,3 +10,8 @@ All notable changes to `laravel-scoring` will be documented in this file
 
 - changed the method get report from UBKI;
 - fixed bugs;
+
+### ver. 1.1.7 - 2021-12-28
+
+- changed the logging requests to database;
+
